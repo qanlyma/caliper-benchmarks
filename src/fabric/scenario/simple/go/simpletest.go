@@ -10,7 +10,7 @@
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License.
-*/
+ */
 
 package main
 
@@ -28,10 +28,7 @@ const ERROR_ACCOUNT_EXISTING = "{\"code\":302, \"reason\": \"account already exi
 const ERROR_ACCOUNT_ABNORMAL = "{\"code\":303, \"reason\": \"abnormal account\"}"
 const ERROR_MONEY_NOT_ENOUGH = "{\"code\":304, \"reason\": \"account's money is not enough\"}"
 
-
-
 type SimpleChaincode struct {
-
 }
 
 func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
@@ -64,13 +61,13 @@ func (t *SimpleChaincode) Open(stub shim.ChaincodeStubInterface, args []string) 
 		return shim.Error(ERROR_WRONG_FORMAT)
 	}
 
-	account  := args[0]
-	money,err := stub.GetState(account)
+	account := args[0]
+	money, err := stub.GetState(account)
 	if money != nil {
 		return shim.Error(ERROR_ACCOUNT_EXISTING)
 	}
 
-	_,err = strconv.Atoi(args[1])
+	_, err = strconv.Atoi(args[1])
 	if err != nil {
 		return shim.Error(ERROR_WRONG_FORMAT)
 	}
@@ -166,8 +163,7 @@ func (t *SimpleChaincode) Transfer(stub shim.ChaincodeStubInterface, args []stri
 	return shim.Success(nil)
 }
 
-
-func  main()  {
+func main() {
 	err := shim.Start(new(SimpleChaincode))
 	if err != nil {
 		fmt.Printf("Error starting chaincode: %v \n", err)
