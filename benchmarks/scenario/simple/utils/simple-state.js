@@ -102,6 +102,13 @@ class SimpleState {
             amount: this.moneyToTransfer
         };
     }
+
+    getCopyArguments() {
+        return {
+            source: this._getRandomAccount(),
+            target: this._getRandomAccount(),
+        };
+    }
 }
 
 module.exports = SimpleState;

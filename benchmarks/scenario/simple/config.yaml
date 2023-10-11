@@ -11,15 +11,14 @@ test:
   workers:
     number: 1
   rounds:
-    - label: transfer
-      description: Test description for transfering money between accounts.
+    - label: copy
+      description: Test description for copying money between accounts.
       txNumber: 10
       rateControl:
         type: fixed-rate
         opts:
           tps: 10
       workload:
-        module: benchmarks/scenario/simple/test.js
+        module: benchmarks/scenario/simple/copy.js
         arguments:
           << : *simple-args
-          money: 100
