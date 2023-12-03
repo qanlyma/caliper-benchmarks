@@ -103,10 +103,19 @@ class SimpleState {
         };
     }
 
-    getCopyArguments() {
+    getRaw2Arguments() {
         return {
             source: this._getRandomAccount(),
             target: this._getRandomAccount(),
+        };
+    }
+
+    getR2w2Arguments() {
+        return {
+            source1: this._getRandomAccount(),
+            source2: this._getRandomAccount(),
+            target1: this._getRandomAccount(),
+            target2: this._getRandomAccount(),
         };
     }
 }

@@ -46,6 +46,14 @@ class Transfer extends OperationBase {
         const transferArgs = this.simpleState.getTransferArguments();
         await this.sutAdapter.sendRequests(this.createConnectorRequest('transfer', transferArgs));
     }
+    // async submitTransaction() {
+    //     const transferArgs = {
+    //         source: "A",
+    //         target: "B",
+    //         amount: "10"
+    //     };
+    //     await this.sutAdapter.sendRequests(this.createConnectorRequest('transfer', transferArgs));
+    // }
 }
 
 /**
