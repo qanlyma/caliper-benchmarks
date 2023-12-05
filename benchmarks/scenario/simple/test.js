@@ -16,32 +16,24 @@ class Test extends OperationBase {
     // async submitTransaction() {
     //     // 生成一个 0 到 1 之间的随机数
     //     const randomProbability = Math.random();
-    //     // 以 50% 的概率执行 transfer，50% 的概率执行 query
-    //     if (randomProbability < 0.5) {
+    //     // 以 a 的概率执行 transfer，1 - a 的概率执行 raw2
+    //     if (randomProbability < 0.85) {
     //         const transferArgs = this.simpleState.getTransferArguments();
     //         await this.sutAdapter.sendRequests(this.createConnectorRequest('transfer', transferArgs));
     //     } else {
-    //         const queryArgs = this.simpleState.getQueryArguments();
-    //         await this.sutAdapter.sendRequests(this.createConnectorRequest('query', queryArgs));
+    //         const raw2Args = this.simpleState.getRaw2Arguments();
+    //         await this.sutAdapter.sendRequests(this.createConnectorRequest('raw2', raw2Args));
     //     }
     // }
 
     // async submitTransaction() {
-    //     const r2w2Args = this.simpleState.getR2w2Arguments();
-    //     await this.sutAdapter.sendRequests(this.createConnectorRequest('r2w2', r2w2Args));
-    // }
-    async submitTransaction() {
-        const raw2Args = this.simpleState.getRaw2Arguments();
-        await this.sutAdapter.sendRequests(this.createConnectorRequest('raw2', raw2Args));
-    }
-    // async submitTransaction() {
-    //     const raw2Args = {
-    //         source: "A",
-    //         target: "D",
-    //     };
+    //     const raw2Args = this.simpleState.getRaw2Arguments();
     //     await this.sutAdapter.sendRequests(this.createConnectorRequest('raw2', raw2Args));
     // }
-
+    async submitTransaction() {
+        const r2w2Args = this.simpleState.getR2w2Arguments();
+        await this.sutAdapter.sendRequests(this.createConnectorRequest('r2w2', r2w2Args));
+    }
 }
 
 function createWorkloadModule() {

@@ -1,7 +1,7 @@
 simpleArgs: &simple-args
   initialMoney: 10000
   moneyToTransfer: 10
-  numberOfAccounts: &number-of-accounts 200
+  numberOfAccounts: &number-of-accounts 1000
 
 test:
   name: simple
@@ -17,27 +17,27 @@ test:
       rateControl:
         type: fixed-rate
         opts:
-          tps: 256
+          tps: 512
       workload:
         module: benchmarks/scenario/simple/open.js
         arguments: *simple-args
-    - label: query
-      description: Test description for the query performance of the deployed contract.
-      txNumber: *number-of-accounts
-      rateControl:
-        type: fixed-rate
-        opts:
-          tps: 256
-      workload:
-        module: benchmarks/scenario/simple/query.js
-        arguments: *simple-args
+    # - label: query
+    #   description: Test description for the query performance of the deployed contract.
+    #   txNumber: *number-of-accounts
+    #   rateControl:
+    #     type: fixed-rate
+    #     opts:
+    #       tps: 256
+    #   workload:
+    #     module: benchmarks/scenario/simple/query.js
+    #     arguments: *simple-args
     - label: test
       description: Test description for R2w2 between accounts.
-      txNumber: 5000
+      txNumber: 5120
       rateControl:
         type: fixed-rate
         opts:
-          tps: 256
+          tps: 2048
       workload:
         module: benchmarks/scenario/simple/test.js
         arguments:
